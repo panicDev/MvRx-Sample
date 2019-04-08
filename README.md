@@ -5,5 +5,6 @@ MvRx (pronounced mavericks) is the Android framework from Airbnb that we use for
 For full documentation, check out the [wiki](https://github.com/airbnb/MvRx/wiki)
 
 ## Todo :
+- Added Database for offline support
 - Unit Test
 - Instrumented Testing
