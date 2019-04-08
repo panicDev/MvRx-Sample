@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\"")
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\"")
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':data')
+    implementation project(':domain')
+
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.core:core-ktx:1.1.0-alpha05'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    implementation 'com.airbnb.android:mvrx:1.0.0'
+
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'org.koin:koin-android:2.0.0-rc-2'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
